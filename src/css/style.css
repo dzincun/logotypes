@@ -1,0 +1,301 @@
+*, 
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #212121;
+
+}
+
+.react {
+    width: 300px;
+    height: 300px;
+    margin: 50px auto;
+    position: relative;
+}
+
+.react:before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 40px;
+
+    background-color: #00d3f8;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate3d(-50%, -50%, 0);
+    animation: reactCircle 500 ms ease-in-out backwards;
+}
+
+.react-ellipse {
+    width: 90%;
+    height: 110px;
+
+    border: 8px solid #00d3f8;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.react-ellipse.center {
+    transform: translate3d(-50%, -50%, 0);
+    animation: reactEllipseCenter 500ms ease-in-out backwards 500ms;
+}
+
+.react-ellipse.left {
+    transform: translate3d(-50%, -50%, 0) rotate(60deg);
+    animation: reactEllipseLeft 500ms ease-in-out backwards 1000ms;
+}
+
+.react-ellipse.right {
+    transform: translate3d(-50%, -50%, 0) rotate(-60deg);
+    animation: reactEllipseRight 500ms ease-in-out backwards 1000ms;
+}
+
+@keyframes reactCircle {
+    from {
+        transform: translate3d(-50%, -50%, 0) scale(0);
+    }
+    to {
+        transform: translate3d(-50%, -50%, 0) scale(1);
+    }
+}
+
+@keyframes reactEllipseCenter {
+    from {
+        transform: translate3d(-50%, -50%, 0) rotateX(90deg);
+        opacity: 0;
+    }
+    to {
+        transform: translate3d(-50%, -50%, 0) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes reactEllipseLeft {
+    from {
+        transform: translate3d(-50%, -50%, 0) rotate(0deg);
+        opacity: 0;
+    }
+    to {
+        transform: translate3d(-50%, -50%, 0) rotate(60deg);
+        opacity: 1;
+    }
+}
+
+@keyframes reactEllipseRight {
+    from {
+        transform: translate3d(-50%, -50%, 0) rotate(0deg);
+        opacity: 0;
+    }
+    to {
+        transform: translate3d(-50%, -50%, 0) rotate(-60deg);
+        opacity: 1;
+    }
+}
+
+
+.vue {
+    width: 300px;
+    height: 260px;
+    margin: 50px auto;
+    position: relative;
+
+    border-style: solid;
+    border-width: 260px 150px 0 150px;
+    border-color: #3eb37b transparent transparent transparent;
+
+    animation: vueMain 500ms ease-in-out backwards;
+}
+
+.vue:before,
+.vue:after {
+    content: "";
+    display: block;
+
+    border-style: solid;
+
+    position: absolute;
+    top: -260px;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.vue:before {
+    border-width: 155px 90px 0 90px;
+    border-color: #33465a transparent transparent transparent;
+
+    animation: vuePseudo 500ms ease-in-out backwards 250ms;
+}
+
+.vue:after {
+    border-width: 60px 35px 0 35px;
+    border-color: #fff transparent transparent transparent;
+
+    animation: vuePseudo 500ms ease-in-out backwards 500ms;
+}
+
+@keyframes vueMain{
+    from {
+        transform: translateY(-25px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes vuePseudo {
+    from {
+        transform: translateX(-50%) translateY(-25px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+.sublime {
+    width: 400px;
+    height: 400px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #4d4d4e;
+    border-radius: 50%;
+    border: 8px solid #fff;
+    box-shadow: 
+        0 0 5px rgba(0, 0, 0, .3),
+        0 0 10px rgba(0, 0, 0, .5) inset;
+
+    animation: sublimeRotate 500ms ease-in-out backwards;
+}
+
+.sublime-logo {
+    width: 180px;
+    height: 200px;
+    margin: auto;
+    position: relative;
+}
+
+.sublime-logo-top,
+.sublime-logo-center,
+.sublime-logo-bottom {
+    width: 100%;
+    height: 33.33333%;
+
+    background-color: #fe9720;
+    border-radius: 8px;
+
+    position: absolute;
+    left: 0;
+}
+
+.sublime-logo-top {
+    top: 0;
+    z-index: 1;
+
+    transform: skewY(-20deg);
+    animation: sublimeTop 500ms ease-in-out 500ms backwards;
+}
+
+.sublime-logo-center {
+    top: 50%;
+    z-index: 2;
+
+    box-shadow: 0 10px 15px rgba(0, 0, 0, .2);
+    animation: sublimeCenter 500ms ease-in-out 500ms backwards;
+
+    transform: translateY(-50%) skewY(20deg);
+}
+
+.sublime-logo-bottom {
+    bottom: 0;
+    z-index: 1;
+
+    transform: skewY(-20deg);
+    animation: sublimeBottom 500ms ease-in-out 500ms backwards;
+}
+
+@keyframes sublimeRotate {
+    from {
+        transform: rotateY(90deg);
+    }
+    to {
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes sublimeTop {
+    from {
+        transform: translateY(-20px) skewY(-20deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) skewY(-20deg);
+        opacity: 1;
+    }
+}
+
+@keyframes sublimeCenter {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes sublimeBottom {
+    from {
+        transform: translateY(20px) skewY(-20deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) skewY(-20deg);
+    }
+}
+
+.youtube {
+    width: 300px;
+    height: 200px;
+    margin: 50px auto;
+    position: relative;
+
+    background-color: #f50b0b;
+    border-radius: 50px 50px 50px 50px / 30px 30px 30px 30px;
+    box-shadow:
+        -10px 0 0 #bb0b0b,
+        -40px 0px 15px -10px rgba(0, 0, 0, .15);
+
+    transform: perspective(550px) rotateY(35deg);
+    
+}
+
+.youtube:before {
+    content: "";
+    display: block;
+
+    border-style: solid;
+    border-width: 40px 0 40px 70px;
+    border-color: transparent transparent transparent #fff;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate3d(-50%, -50%, 0);
+}
+
